@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   	<title>Lab 2</title>
+	<script>
+		let secondsSinceLoad = 0;
+const updateSeconds = () => document.getElementById("seconds").textContent = ++secondsSinceLoad;
+document.addEventListener("DOMContentLoaded", function() {
+    setTitle();//sets title 
+    studentName("Liberty Dowell");//shows name
+    setInterval(updateSeconds, 1000);//starts seconds
+});
+function setTitle() {
+    document.getElementById("title").textContent = "Hello, this is Lab 2!";
+}
+function studentName(name) {
+    document.getElementById("student").textContent = name;
+}
+function add(a, b) {
+    return a + b;
+}
+function subtract(a, b) {
+    return a - b;
+}
+function sum() { 
+    let total = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+    }
+    return total;//loops though all argument and adds them to the total
+    }
+	</script>
+</head>
+<body>
+	<h1 id="title">Title</h1>
+	<h2 id="student">Student Name</h2>
+	Seconds since page loaded: <div id="seconds"></div>
+	<script>
+	document.writeln(add(10, 15) + "<br>");
+    document.writeln(subtract(45, 10) + "<br>");
+    document.writeln(sum(5, 10,20,30) + "<br>");
+    </script>
+</body> 
+</html>
