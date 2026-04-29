@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lab 4</title>
+  <style>
+    * { font-family: Roboto, Helvetica, Arial, sans-serif; }
+    body { padding: 10px; }
+    p { padding-bottom: 20px; }
+    b { display: block; }
+  </style>
+</head>
+<body>
+
+<h1>IT-2320 - Lab 4: Objects, Classes, Sets, Maps</h1>
+<h2>Student Name: Liberty Dowell</h2>
+
+<!-- 1. Student Class -->
+<p>
+<b>1. Create a Student class with properties and a displayProperties() method.</b><br>
+<script>
+class Student {
+  constructor(name, major, gpa, classesTaken) {
+    this.name = name;
+    this.major = major;
+    this.gpa = gpa;
+    this.classesTaken = classesTaken;
+  }
+
+  displayProperties() {
+    document.writeln("Name: " + this.name + "<br>");
+    document.writeln("Major: " + this.major + "<br>");
+    document.writeln("GPA: " + this.gpa + "<br>");
+    document.writeln("Classes Taken: " + this.classesTaken.join(", ") + "<br><br>");
+  }
+}
+
+let student1 = new Student(
+  "Liberty Dowell",
+  "Information Technology",
+  3.0,
+  ["IT-1025", "IT-2310", "IT-1050"]
+);
+
+student1.displayProperties();
+</script>
+</p>
+
+<!-- 2. Course Object -->
+<p>
+<b>2. Create a Course object (not a class) with a displayCourse() method.</b><br>
+<script>
+let Course = {
+  courseId: "IT-2320",
+  title: "IT-2320",
+  crsDesc: "Interactive Internet Programming",
+  creditHrs: 4,
+
+  displayCourse() {
+    let values = Object.values(this);
+    for (let v of values) {
+      document.writeln(v + "<br>");
+    }
+    document.writeln("<br>");
+  }
+};
+
+Course.displayCourse();
+</script>
+</p>
+
+<!-- 3. Planet Object -->
+<p>
+<b>3. Create a planet object and add a property after creation.</b><br>
+<script>
+let planet = {
+  name: "Mercury",
+  diameterMiles: 3031.9
+};
+
+planet.millMilesFromEarth = 48;
+
+document.writeln("Planet Name: " + planet.name + "<br>");
+document.writeln("Diameter (miles): " + planet.diameterMiles + "<br>");
+document.writeln("Million Miles from Earth: " + planet.millMilesFromEarth + "<br><br>");
+</script>
+</p>
+
+<!-- 4. Set of Favorite Languages -->
+<p>
+<b>4. Create a Set of favorite programming languages.</b><br>
+
+<script>let favoriteLanguages = new Set(["JavaScript", "Python", "Swift", "Dart"]);
+for (let language of favoriteLanguages) {
+  document.writeln(language + "<br>");
+}
+document.writeln("<br>");
+</script>
+</p>
+
+<!-- 5. Map of Credit Hours -->
+<p>
+<b>5. Create a Map of course credit hours and output values.</b><br>
+<script>
+let creditHrs = new Map();
+
+creditHrs.set("IT-1025", 3);
+creditHrs.set("IT-1050", 3);
+creditHrs.set("IT-2310", 3);
+creditHrs.set("IT-2320", 4);
+creditHrs.set("IT-2030", 4);
+creditHrs.set("IT-2351", 4);
+creditHrs.set("IT-2650", 4);
+
+document.writeln("Credit hours for IT-2030: " + creditHrs.get("IT-2030") + "<br><br>");
+
+for (let [course, hrs] of creditHrs) {
+  document.writeln(course + ": " + hrs + "<br>");
+}
+</script>
+</p>
+
+</body>
+</html>
